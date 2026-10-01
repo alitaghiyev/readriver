@@ -12,7 +12,9 @@ git archive --format=zip -o readriver.zip HEAD
 
 - **Category:** Tools (or Education)
 - **Language:** English (Turkish comes from `_locales/tr`)
-- **Screenshots:** 1280×800 or 640×400, taken from `docs/screenshots/`
+- **Screenshots:** `docs/store/1-…5-*.png` (1280×800, cropped from `docs/screenshots/`)
+- **Promo tiles:** `docs/store/promo-440x280.png`, `docs/store/marquee-1400x560.png`
+- **Homepage / support URL:** https://github.com/alitaghiyev/readriver, https://github.com/alitaghiyev/readriver/issues
 - **Privacy policy URL:** https://github.com/alitaghiyev/readriver/blob/main/PRIVACY.md
 
 ## Single purpose
