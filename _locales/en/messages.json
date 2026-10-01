@@ -1,0 +1,7 @@
+{
+  "extDescription": {
+    "message": "In-page translation of words and sentences in many languages: examples, saved words, flashcards. Free sources or your own LLM."
+  },
+  "cmdOpen": { "message": "Open the ReadRiver popup" },
+  "cmdTagMode": { "message": "Toggle one-click translation in this tab" }
+}

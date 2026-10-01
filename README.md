@@ -11,7 +11,7 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/version-0.10.4-1a73e8?style=for-the-badge" alt="Version 0.10.4">
+    <img src="https://img.shields.io/badge/version-0.10.5-1a73e8?style=for-the-badge" alt="Version 0.10.5">
     <img src="https://img.shields.io/badge/Manifest-V3-34a853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3">
     <img src="https://img.shields.io/badge/Chrome%20%7C%20Brave-supported-fbbc05?style=for-the-badge&logo=brave&logoColor=white" alt="Chrome and Brave">
     <img src="https://img.shields.io/badge/build%20step-none-555555?style=for-the-badge&logo=javascript&logoColor=white" alt="No build step">
@@ -53,7 +53,7 @@ Reading in a foreign language breaks down every time you leave the page to look 
 - 🔒 **Private by design**: no server of ours, no telemetry, keys stay in your browser.
 - 🧩 **Plain JavaScript**: no build step and no dependencies.
 
-> Status: early development (v0.10.4). Not yet in the Chrome Web Store; install it unpacked as shown below.
+> Status: early development (v0.10.5). Not yet in the Chrome Web Store; install it unpacked as shown below.
 
 ## 🚀 Quick start
 
@@ -228,11 +228,15 @@ Interface language: **English** or **Türkçe** (or follow the browser).
 - API keys are stored only in `chrome.storage.local`. Web pages and content scripts never see them.
 - With a local provider (Ollama, LM Studio) the text you elaborate with the LLM never leaves your computer.
 
+Full text: [Privacy Policy](PRIVACY.md).
+
 ## 🛠️ Development
 
 After changing code, click the reload icon (⟳) on the extension **and refresh open tabs**, since content scripts are injected on page load. The settings page shows the loaded version.
 
-For local development you can seed default keys in `local-config.js`. That file is **git-ignored; never commit it**.
+For local development you can seed default keys: copy `local-config.example.json` to `local-config.json` and fill it in. That file is optional and **git-ignored; never commit it**.
+
+Store package: `git archive --format=zip -o readriver.zip HEAD` (see `docs/store-listing.md`).
 
 ```
 manifest.json

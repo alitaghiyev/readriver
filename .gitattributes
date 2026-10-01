@@ -1,0 +1,8 @@
+# Left out of the store package: git archive --format=zip -o readriver.zip HEAD
+docs/ export-ignore
+README.md export-ignore
+README.tr.md export-ignore
+PRIVACY.md export-ignore
+local-config.example.json export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore

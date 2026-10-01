@@ -1,0 +1,7 @@
+{
+  "extDescription": {
+    "message": "Birçok dilde kelime ve cümle çevirisi, örnek cümleler, kaydetme ve flashcard tekrarı. Ücretsiz kaynaklar ya da kendi LLM'iniz."
+  },
+  "cmdOpen": { "message": "ReadRiver penceresini aç" },
+  "cmdTagMode": { "message": "Bu sekmede tek tık çeviriyi aç/kapat" }
+}

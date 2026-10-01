@@ -11,7 +11,7 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/s%C3%BCr%C3%BCm-0.10.4-1a73e8?style=for-the-badge" alt="Sürüm 0.10.4">
+    <img src="https://img.shields.io/badge/s%C3%BCr%C3%BCm-0.10.5-1a73e8?style=for-the-badge" alt="Sürüm 0.10.5">
     <img src="https://img.shields.io/badge/Manifest-V3-34a853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3">
     <img src="https://img.shields.io/badge/Chrome%20%7C%20Brave-destekleniyor-fbbc05?style=for-the-badge&logo=brave&logoColor=white" alt="Chrome ve Brave">
     <img src="https://img.shields.io/badge/derleme%20ad%C4%B1m%C4%B1-yok-555555?style=for-the-badge&logo=javascript&logoColor=white" alt="Derleme adımı yok">
@@ -55,7 +55,7 @@ Yabancı dilde okurken bir kelimeye bakmak için sayfadan her ayrılışınızda
 - 🔒 **Gizlilik önce gelir**: kendi sunucumuz yok, telemetri yok, anahtarlar tarayıcınızda kalır.
 - 🧩 **Düz JavaScript**: derleme adımı ve bağımlılık yok.
 
-> Durum: erken geliştirme (v0.10.4). Henüz Chrome Web Mağazası'nda değil; aşağıdaki gibi paketlenmemiş olarak yüklenir.
+> Durum: erken geliştirme (v0.10.5). Henüz Chrome Web Mağazası'nda değil; aşağıdaki gibi paketlenmemiş olarak yüklenir.
 
 ## 🚀 Hızlı başlangıç
 
@@ -230,11 +230,15 @@ Arayüz dili: **Türkçe** veya **English** (ya da tarayıcı diliyle aynı).
 - API anahtarları yalnızca `chrome.storage.local`'da tutulur. Web sayfaları ve içerik betiği anahtarları görmez.
 - Yerel bir sağlayıcıyla (Ollama, LM Studio) LLM'e sorduğunuz metin bilgisayarınızdan çıkmaz.
 
+Tam metin: [Gizlilik Politikası](PRIVACY.md) (İngilizce).
+
 ## 🛠️ Geliştirme
 
 Kodu değiştirince eklentideki yenile (⟳) simgesine basın **ve açık sekmeleri yenileyin**; içerik betiği sayfa yüklenirken enjekte edilir. Ayarlar sayfası yüklü sürümü gösterir.
 
-Yerel geliştirmede varsayılan anahtarları `local-config.js` içine yazabilirsiniz. Bu dosya **git tarafından yok sayılır; asla commit etmeyin**.
+Yerel geliştirmede varsayılan anahtarları tohumlayabilirsiniz: `local-config.example.json` dosyasını `local-config.json` adıyla kopyalayıp doldurun. Bu dosya isteğe bağlıdır ve **git tarafından yok sayılır; asla commit etmeyin**.
+
+Mağaza paketi: `git archive --format=zip -o readriver.zip HEAD` (bkz. `docs/store-listing.md`).
 
 ```
 manifest.json

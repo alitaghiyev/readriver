@@ -1,5 +1,15 @@
-import { LOCAL } from "./local-config.js";
 import "./shared/prefs.js"; // globalThis.RC_PREFS
+
+// Optional local defaults: git-ignored local-config.json (see local-config.example.json).
+// Fetched instead of imported so a missing file doesn't break the service worker.
+let LOCAL = {};
+let localLoad;
+function loadLocal() {
+  return (localLoad ||= fetch(chrome.runtime.getURL("local-config.json"))
+    .then((r) => r.json())
+    .then((j) => { LOCAL = j || {}; })
+    .catch(() => {}));
+}
 
 // Provider types: "openai" (OpenAI-compatible: OpenAI, OpenRouter, OmniRoute, Groq…), "gemini", "anthropic" (Claude).
 export const PRESETS = {
@@ -39,8 +49,8 @@ const freeSeed = () => makeProvider("free", { id: "seed-free" });
 function defaultProviders() {
   return [
     freeSeed(),
-    makeProvider("omniroute", { ...LOCAL.openai, baseUrl: LOCAL.openai.baseUrl || "" }),
-    makeProvider("gemini", { key: LOCAL.gemini.key, model: LOCAL.gemini.model || "gemini-flash-lite-latest" }),
+    makeProvider("omniroute", { ...LOCAL.openai, baseUrl: LOCAL.openai?.baseUrl || "" }),
+    makeProvider("gemini", { key: LOCAL.gemini?.key || "", model: LOCAL.gemini?.model || "gemini-flash-lite-latest" }),
     ...(LOCAL.nvidia?.key ? [nvidiaSeed()] : [])
   ];
 }
@@ -74,6 +84,7 @@ function migrate(s) {
 }
 
 export async function getSettings() {
+  await loadLocal();
   const { settings } = await chrome.storage.local.get("settings");
   const s = settings || {};
   const providers = Array.isArray(s.providers)

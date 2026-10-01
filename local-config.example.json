@@ -1,0 +1,5 @@
+{
+  "gemini": { "key": "", "model": "" },
+  "nvidia": { "key": "", "model": "" },
+  "openai": { "baseUrl": "", "key": "", "model": "" }
+}
