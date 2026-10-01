@@ -55,13 +55,15 @@ Reading in a foreign language breaks down every time you leave the page to look 
 
 > Status: early development (v0.10.5). Not yet in the Chrome Web Store; install it unpacked as shown below.
 
+> 🖥️ **Outside the browser too:** [ReadRiver Desktop](https://github.com/alitaghiyev/readriver-desktop) brings the same card to any Windows app (Discord, PDF readers, editors). Settings, providers and saved words move between the two with **Settings → Advanced → Export / Import**.
+
 ## 🚀 Quick start
 
 There is nothing to build.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/alitaghiyev/readriver.git
+   git clone https://github.com/alitaghiyev/readriver-extension.git
    ```
 2. Open `chrome://extensions` (or `brave://extensions`) and turn on **Developer mode**.
 3. Click **Load unpacked** and select the project folder.

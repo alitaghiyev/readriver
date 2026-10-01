@@ -39,4 +39,4 @@ ReadRiver does not sell or transfer your data to third parties, does not use it 
 
 ## Contact
 
-Questions or requests: open an issue at <https://github.com/alitaghiyev/readriver/issues>.
+Questions or requests: open an issue at <https://github.com/alitaghiyev/readriver-extension/issues>.

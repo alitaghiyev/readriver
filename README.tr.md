@@ -57,13 +57,15 @@ Yabancı dilde okurken bir kelimeye bakmak için sayfadan her ayrılışınızda
 
 > Durum: erken geliştirme (v0.10.5). Henüz Chrome Web Mağazası'nda değil; aşağıdaki gibi paketlenmemiş olarak yüklenir.
 
+> 🖥️ **Tarayıcının dışında da:** [ReadRiver Masaüstü](https://github.com/alitaghiyev/readriver-desktop) aynı kartı her Windows uygulamasına taşır (Discord, PDF okuyucular, editörler). Ayarlar, sağlayıcılar ve kaydedilen kelimeler **Ayarlar → Gelişmiş → Dışa aktar / İçe aktar** ile ikisi arasında taşınır.
+
 ## 🚀 Hızlı başlangıç
 
 Derlenecek bir şey yok.
 
 1. Depoyu klonlayın:
    ```bash
-   git clone https://github.com/alitaghiyev/readriver.git
+   git clone https://github.com/alitaghiyev/readriver-extension.git
    ```
 2. `chrome://extensions` (veya `brave://extensions`) sayfasını açıp **Geliştirici modu**'nu etkinleştirin.
 3. **Paketlenmemiş öğe yükle**'ye tıklayıp proje klasörünü seçin.
