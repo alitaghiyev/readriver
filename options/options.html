@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReadRiver Ayarlar</title>
+  <link rel="stylesheet" href="../shared/result.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body class="rc-root">
+  <header class="top">
+    <h1>ReadRiver ayarları</h1>
+    <span id="ver" class="hint"></span>
+  </header>
+
+  <nav id="tabs" class="tabs">
+    <button data-tab="sources">Kaynaklar</button>
+    <button data-tab="behavior">Tetikleme</button>
+    <button data-tab="subtitle">Altyazı</button>
+    <button data-tab="look">Görünüm</button>
+    <button data-tab="advanced">Gelişmiş</button>
+  </nav>
+
+  <main id="main">
+    <!-- SOURCES -->
+    <section data-panel="sources">
+      <div class="h2row">
+        <h2>Sağlayıcılar</h2>
+        <button class="linkbtn" id="collapse-all" type="button">Tümünü aç / kapat</button>
+      </div>
+      <details class="help">
+        <summary>Nasıl çalışır?</summary>
+        <p class="hint">Numara sırasıyla denenir; biri hata verirse ya da ayarı eksikse sıradaki devreye girer. Hızlı (ücretsiz) sağlayıcıyı en üstte tut: anında yanıt verir. LLM'ler yedek kalır ve kartta “LLM ile detaylandır” düğmesiyle istediğinde çalışır. Sadece LLM istersen Hızlı olanı kapat. Hepsi başarısız olursa Chrome'un yerleşik çevirisi denenir.</p>
+        <p class="hint">Ayrıntıları görmek için bir sağlayıcının başlığına tıkla. ChatGPT / Claude sohbet abonelikleri API'yi kapsamaz, API anahtarı ayrıca alınır. Ücretsiz katman limitleri sağlayıcıların sitelerinde değişebilir.</p>
+      </details>
+      <div id="list"></div>
+      <div class="row add">
+        <button class="sec" id="add" type="button">+ Sağlayıcı ekle</button>
+      </div>
+      <div id="gallery" class="gallery" hidden></div>
+
+      <h2>Diller</h2>
+      <div class="lang-row">
+        <label>Dil A <select id="langA"></select></label>
+        <button class="sec" id="lang-swap" type="button" title="Dilleri değiştir">⇄</button>
+        <label>Dil B <select id="langB"></select></label>
+      </div>
+      <p class="hint">Girdi hangi dildeyse diğerine çevrilir. Dil B genelde ana dilin olsun: LLM notları bu dilde yazar. Başka bir dilde metin seçersen Dil B'ye çevrilir.</p>
+      <p class="hint" id="lang-note"></p>
+    </section>
+
+    <!-- TRIGGERS -->
+    <section data-panel="behavior" hidden>
+      <h2>Ne zaman çevrilsin?</h2>
+      <div id="f-behavior"></div>
+
+      <h2>Tek tık modu</h2>
+      <p class="hint">Açıkken kelimeye tek tıklayınca çevirisi kelimenin üstüne yazılır; aynı kelimeye (ya da etikete) tekrar tıklayınca kalkar, ☆ kelimeyi kaydeder. Sekme başına açılır: araç çubuğu penceresindeki anahtar ya da Alt+T. Çift tıklama kartı her zaman çalışır.</p>
+      <div id="f-tag"></div>
+      <h3>Önizleme</h3>
+      <div class="row tag-pv-bar">
+        <label>Örnek sayfanın satır aralığı
+          <select id="tag-pv-lh">
+            <option value="1.25">Sık (1.25)</option>
+            <option value="1.5" selected>Normal (1.5)</option>
+            <option value="1.8">Geniş (1.8)</option>
+          </select>
+        </label>
+        <label>Yazı boyutu
+          <select id="tag-pv-fs">
+            <option value="14">14 px</option>
+            <option value="16" selected>16 px</option>
+            <option value="18">18 px</option>
+          </select>
+        </label>
+      </div>
+      <p class="hint">Fareyi kelimelerin üzerinde gezdir; kelimeye tıklayınca etiket eklenir/kalkar (çeviri gerçekten yapılır).</p>
+      <div id="tag-pv-wrap"><div id="tag-pv-text"></div></div>
+    </section>
+
+    <!-- SUBTITLES -->
+    <section data-panel="subtitle" hidden>
+      <h2>Video altyazısı</h2>
+      <p class="hint">Altyazıdaki bir kelimenin üzerinde bekleyince çevirir. <code>Shift</code> basılıyken üzerine gelirsen tüm altyazı satırı çevrilir.</p>
+      <div id="f-subtitle"></div>
+    </section>
+
+    <!-- APPEARANCE -->
+    <section data-panel="look" hidden>
+      <h2>Görünüm</h2>
+      <div id="f-look"></div>
+      <h3>Önizleme</h3>
+      <div id="preview-wrap"><div id="preview" class="rc-root"></div></div>
+    </section>
+
+    <!-- ADVANCED -->
+    <section data-panel="advanced" hidden>
+      <h2>Önbellek ve siteler</h2>
+      <div id="f-advanced"></div>
+      <div class="row">
+        <button class="sec" id="clear-cache">Önbelleği temizle</button>
+        <span class="status" id="c-msg"></span>
+      </div>
+
+      <h2>Kullanım</h2>
+      <p class="hint">Eklentinin kendi sayımı: hangi kaynağa kaç istek gitti, kaç karakter/token harcandı. Metin ya da anahtar saklanmaz. Sağlayıcı panelindeki gerçek kota ya da fatura farklı olabilir (başka cihazdaki kullanım görünmez).</p>
+      <div class="row">
+        <select id="u-range">
+          <option value="1">Bugün</option>
+          <option value="7">Son 7 gün</option>
+          <option value="30" selected>Son 30 gün</option>
+          <option value="90">Son 90 gün</option>
+        </select>
+        <button class="sec" id="u-reset">Sayaçları sıfırla</button>
+        <span class="status" id="u-msg"></span>
+      </div>
+      <div id="u-out"></div>
+
+      <h3>Kota ve bakiye</h3>
+      <p class="hint">Sağlayıcının kendi verdiği gerçek değerler: DeepL (karakter), OpenRouter ve DeepSeek (bakiye). Anahtarın ilgili sağlayıcıya gönderilir; yalnızca düğmeye basınca sorgulanır. Gemini, Google, Microsoft, MyMemory, OpenAI ve Claude bu bilgiyi normal anahtarla vermez.</p>
+      <div class="row">
+        <button class="sec" id="q-run">Kotaları sorgula</button>
+        <span class="status" id="q-msg"></span>
+      </div>
+      <div id="q-out"></div>
+      <div id="l-out"></div>
+
+      <h2>Yedekleme</h2>
+      <p class="hint">Ayarları ve kaydedilen kelimeleri bir dosyaya al ya da başka bir tarayıcıya aktar.</p>
+      <label class="check"><input type="checkbox" id="exp-keys"> API anahtarlarını da dosyaya ekle (dosyayı kimseyle paylaşma)</label>
+      <div class="row">
+        <button class="sec" id="export">Dışa aktar</button>
+        <button class="sec" id="import">İçe aktar…</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden>
+        <span class="status" id="d-msg"></span>
+      </div>
+
+      <h2>Tanı (sorun giderme)</h2>
+      <p class="hint">Bir tarayıcıda çalışmıyorsa: önce bir web sayfasını aç ve yenile (F5), sonra buraya gelip düğmeye bas. Eklentinin arka planı, ağ erişimi ve sayfalardaki içerik betiği kontrol edilir.</p>
+      <button class="sec" id="diag">Tanıyı çalıştır</button>
+      <div id="diag-out"></div>
+
+      <h2>Sıfırla</h2>
+      <button class="sec danger" id="reset">Tercihleri varsayılana döndür</button>
+      <p class="hint">Sağlayıcıları, API anahtarlarını ve kaydedilen kelimeleri etkilemez. Kaydet'e basana kadar uygulanmaz.</p>
+    </section>
+  </main>
+
+  <footer class="bar">
+    <button id="save">Kaydet</button>
+    <span id="msg" class="status"></span>
+  </footer>
+
+  <script src="../shared/prefs.js"></script>
+  <script src="../shared/langs.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="../shared/i18n-options.js"></script>
+  <script src="../shared/render.js"></script>
+  <script src="../shared/tagfit.js"></script>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

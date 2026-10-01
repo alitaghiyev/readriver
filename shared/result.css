@@ -1,0 +1,78 @@
+/* Theme: system (auto), fixed light or dark. The data-theme attribute is set on the host element (the shadow root host or <html>).
+   If the user customizes the accent color, --rc-accent is set inline and overrides the one here. */
+:host, :root {
+  --rc-bg: #ffffff;
+  --rc-fg: #1c2733;
+  --rc-muted: #6b7a8a;
+  --rc-accent: #1a73e8;
+  --rc-chip: #eef3fb;
+  --rc-border: #dfe5ec;
+  --rc-mark: #fff2a8;
+}
+@media (prefers-color-scheme: dark) {
+  :host, :root {
+    --rc-bg: #1e2329;
+    --rc-fg: #e6eaef;
+    --rc-muted: #98a4b1;
+    --rc-accent: #7ab0ff;
+    --rc-chip: #2a323b;
+    --rc-border: #38414b;
+    --rc-mark: #5c5320;
+  }
+  :host([data-theme="light"]), :root[data-theme="light"] {
+    --rc-bg: #ffffff;
+    --rc-fg: #1c2733;
+    --rc-muted: #6b7a8a;
+    --rc-accent: #1a73e8;
+    --rc-chip: #eef3fb;
+    --rc-border: #dfe5ec;
+    --rc-mark: #fff2a8;
+  }
+}
+:host([data-theme="dark"]), :root[data-theme="dark"] {
+  --rc-bg: #1e2329;
+  --rc-fg: #e6eaef;
+  --rc-muted: #98a4b1;
+  --rc-accent: #7ab0ff;
+  --rc-chip: #2a323b;
+  --rc-border: #38414b;
+  --rc-mark: #5c5320;
+}
+
+.rc-root, .rc-root * { box-sizing: border-box; font-family: system-ui, "Segoe UI", sans-serif; }
+.rc-root { color: var(--rc-fg); font-size: 14px; line-height: 1.45; }
+
+.rc-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; padding-right: 22px; }
+.rc-query { font-size: 18px; font-weight: 600; word-break: break-word; }
+.rc-dir { font-size: 11px; color: var(--rc-muted); letter-spacing: .04em; }
+.rc-icon, .rc-save {
+  border: 0; background: none; cursor: pointer; color: var(--rc-fg); font-size: 14px; padding: 2px 4px;
+}
+.rc-save { margin-left: auto; color: var(--rc-accent); font-size: 13px; }
+.rc-save:disabled { color: var(--rc-muted); cursor: default; }
+
+.rc-translations { display: flex; flex-wrap: wrap; gap: 6px; }
+.rc-chip {
+  display: inline-flex; align-items: baseline; gap: 6px; border: 0; cursor: pointer;
+  background: var(--rc-chip); color: var(--rc-fg); border-radius: 999px; padding: 4px 12px; font-size: 14px;
+}
+.rc-chip:hover { outline: 1px solid var(--rc-accent); }
+.rc-pos { font-size: 11px; color: var(--rc-muted); }
+
+.rc-notes { margin-top: 8px; color: var(--rc-muted); font-size: 13px; }
+.rc-section {
+  margin: 12px 0 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--rc-muted);
+}
+.rc-example { padding: 6px 0; border-top: 1px solid var(--rc-border); }
+.rc-src { color: var(--rc-fg); }
+.rc-tgt { color: var(--rc-muted); }
+.rc-example mark { background: var(--rc-mark); color: inherit; border-radius: 3px; padding: 0 2px; }
+
+.rc-more {
+  display: block; width: 100%; margin-top: 12px; padding: 7px; cursor: pointer; font-size: 13px;
+  border: 1px solid var(--rc-border); border-radius: 8px; background: var(--rc-chip); color: var(--rc-fg);
+}
+.rc-more:hover { border-color: var(--rc-accent); }
+.rc-status { color: var(--rc-muted); padding: 8px 0; }
+.rc-error { color: #d93025; white-space: pre-wrap; padding: 8px 0; font-size: 13px; }
+.rc-foot { margin-top: 10px; font-size: 11px; color: var(--rc-muted); text-align: right; }

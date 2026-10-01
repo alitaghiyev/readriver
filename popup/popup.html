@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReadRiver</title>
+  <link rel="stylesheet" href="../shared/result.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="rc-root">
+  <div id="health" class="health" hidden></div>
+  <form id="form" class="search">
+    <input id="q" type="text" placeholder="Kelime veya cümle yaz…" autocomplete="off" autofocus>
+    <button type="submit" title="Çevir">→</button>
+  </form>
+  <label id="tagRow" class="tagmode" title="Açık: kelimeye tek tıklayınca çevirisi üstüne yazılır (bu sekmede, Alt+T)" hidden>
+    <input id="tagMode" type="checkbox"> <span>Tek tık çeviri</span> <kbd>Alt+T</kbd>
+  </label>
+  <nav class="tabs">
+    <button data-tab="search" class="active">Çeviri</button>
+    <button data-tab="history">Geçmiş</button>
+    <button data-tab="saved">Kaydedilenler</button>
+    <button data-tab="review">Tekrar</button>
+    <a href="../options/options.html" target="_blank" class="opt">Ayarlar</a>
+  </nav>
+  <main id="out"></main>
+  <script src="../shared/prefs.js"></script>
+  <script src="../shared/langs.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="../shared/render.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
